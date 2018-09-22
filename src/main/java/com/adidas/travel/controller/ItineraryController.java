@@ -21,4 +21,9 @@ public class ItineraryController {
     public List<Itinerary> listByTime(@PathVariable String iata) {
         return itineraryService.listSortedByTime(iata);
     }
+
+    @GetMapping("/byconnections/{iata}")
+    public List<Itinerary> listByConnections(@PathVariable String iata) {
+        return itineraryService.listSortedByConnections(iata);
+    }
 }

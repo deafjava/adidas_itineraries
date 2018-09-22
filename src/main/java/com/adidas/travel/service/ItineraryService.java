@@ -8,4 +8,5 @@ public interface ItineraryService {
 
     List<Itinerary> listSortedByTime(String originIata);
 
+    List<Itinerary> listSortedByConnections(String originIata);
 }
