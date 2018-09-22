@@ -1,0 +1,11 @@
+server:
+  port: 8082
+
+spring:
+  flyway:
+    enabled: false
+
+route:
+  api:
+    url:
+      http://localhost:8081/route/
