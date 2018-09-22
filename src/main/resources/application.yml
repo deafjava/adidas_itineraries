@@ -9,3 +9,7 @@ route:
   api:
     url:
       http://localhost:8081/route/
+
+auth:
+  user: admin
+  password: adidas!
