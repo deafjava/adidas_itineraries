@@ -8,7 +8,7 @@ spring:
 route:
   api:
     url:
-      http://localhost:8081/route/
+      http://192.168.3.12:8081/route/
 
 auth:
   user: admin

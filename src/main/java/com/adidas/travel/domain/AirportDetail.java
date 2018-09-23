@@ -1,6 +1,7 @@
 package com.adidas.travel.domain;
 
 import com.adidas.travel.client.domain.City;
+import com.fasterxml.jackson.annotation.JsonGetter;
 import lombok.Data;
 
 import java.time.LocalTime;
@@ -28,5 +29,15 @@ public class AirportDetail {
         airportDetail.setLocalTime(localTime);
 
         return airportDetail;
+    }
+
+    @JsonGetter("gmtTime")
+    public String getRawGmtTime() {
+        return gmtTime.toString();
+    }
+
+    @JsonGetter("localTime")
+    public String getRawLocalTime() {
+        return localTime.toString();
     }
 }
