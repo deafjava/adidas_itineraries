@@ -21,6 +21,15 @@ public class ErrorController {
                 .body(new ResponseBodyError("Invalid iata code!"));
     }
 
+    @ResponseStatus(code = HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ResponseBodyError> genericError() {
+
+        return ResponseEntity
+                .unprocessableEntity()
+                .body(new ResponseBodyError("Oops! Something wrong happened!"));
+    }
+
     @Data
     @AllArgsConstructor
     private static class ResponseBodyError {
