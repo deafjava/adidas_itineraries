@@ -1,15 +1,10 @@
 server:
-  port: 8082
-
-spring:
-  flyway:
-    enabled: false
+  port: ${SERVER_PORT:8082}
 
 route:
   api:
-    url:
-      http://192.168.3.12:8081/route/
+    url: ${API_URL:http://192.168.3.12:8081/route/}
 
 auth:
-  user: admin
-  password: adidas!
+  user: ${API_USER:admin}
+  password: ${API_PW:adidas!}
