@@ -1,10 +1,12 @@
 server:
-  port: ${SERVER_PORT:8087}
-
-route:
-  api:
-    url: ${API_URL:http://192.168.3.11:8081/route/}
+  port: ${SERVER_PORT:8082}
 
 auth:
   user: ${API_USER:admin}
   password: ${API_PW:adidas!}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${URL_SPRING_CLOUD:http://localhost:8088/eureka}
+    register-with-eureka: false

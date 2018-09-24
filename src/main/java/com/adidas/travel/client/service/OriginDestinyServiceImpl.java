@@ -1,6 +1,8 @@
 package com.adidas.travel.client.service;
 
 import com.adidas.travel.client.domain.Route;
+import com.netflix.appinfo.InstanceInfo;
+import com.netflix.discovery.EurekaClient;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,11 +20,13 @@ import java.util.List;
 @Service
 public class OriginDestinyServiceImpl implements OriginDestinyService {
 
+    private static final String PATH_ROUTE = "route/";
+
     @Autowired
     private RestTemplate restTemplate;
 
-    @Value("${route.api.url}")
-    private String urlApi;
+    @Autowired
+    private EurekaClient eurekaClient;
 
     @Value("${auth.user}")
     private String user;
@@ -33,7 +37,11 @@ public class OriginDestinyServiceImpl implements OriginDestinyService {
     @Override
     public List<Route> getRoutesByOrigin(String iata) {
 
-        String uri = urlApi + iata;
+        InstanceInfo instanceInfo = eurekaClient.getNextServerFromEureka("routes-service", false);
+
+        String serviceBaseUrl = instanceInfo.getHomePageUrl();
+
+        String uri = serviceBaseUrl + PATH_ROUTE + iata;
 
         ResponseEntity<List<Route>> response = restTemplate.exchange(
                 uri,
