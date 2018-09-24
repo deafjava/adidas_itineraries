@@ -1,6 +1,6 @@
-package com.adidas.travel.client.service;
+package com.adidas.travel.client;
 
-import com.adidas.travel.client.domain.Route;
+import com.adidas.travel.domain.Route;
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
 import org.apache.tomcat.util.codec.binary.Base64;
@@ -11,14 +11,14 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.nio.charset.Charset;
 import java.util.List;
 
-@Service
-public class OriginDestinyServiceImpl implements OriginDestinyService {
+@Component
+public class RouteApiClientImpl implements RouteApiClient {
 
     private static final String PATH_ROUTE = "route/";
 
@@ -35,8 +35,7 @@ public class OriginDestinyServiceImpl implements OriginDestinyService {
     private String password;
 
     @Override
-    public List<Route> getRoutesByOrigin(String iata) {
-
+    public List<Route> getRoutes(String iata) {
         InstanceInfo instanceInfo = eurekaClient.getNextServerFromEureka("routes-service", false);
 
         String serviceBaseUrl = instanceInfo.getHomePageUrl();
@@ -51,7 +50,6 @@ public class OriginDestinyServiceImpl implements OriginDestinyService {
                 });
 
         return response.getBody();
-
     }
 
     private HttpHeaders createHeaders(String username, String password) {

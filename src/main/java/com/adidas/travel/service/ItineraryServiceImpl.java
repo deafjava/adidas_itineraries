@@ -1,8 +1,8 @@
 package com.adidas.travel.service;
 
-import com.adidas.travel.client.domain.Route;
-import com.adidas.travel.client.service.OriginDestinyService;
 import com.adidas.travel.domain.Itinerary;
+import com.adidas.travel.domain.Route;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +12,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class ItineraryServiceImpl implements ItineraryService {
 
     @Autowired

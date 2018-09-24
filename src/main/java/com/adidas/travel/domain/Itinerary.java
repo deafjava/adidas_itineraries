@@ -1,7 +1,5 @@
 package com.adidas.travel.domain;
 
-import com.adidas.travel.client.domain.Connection;
-import com.adidas.travel.client.domain.Route;
 import com.adidas.travel.service.utils.TimeUtils;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonInclude;

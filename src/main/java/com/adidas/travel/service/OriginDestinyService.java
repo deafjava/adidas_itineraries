@@ -1,6 +1,7 @@
-package com.adidas.travel.client.service;
+package com.adidas.travel.service;
 
-import com.adidas.travel.client.domain.Route;
+
+import com.adidas.travel.domain.Route;
 
 import java.util.List;
 

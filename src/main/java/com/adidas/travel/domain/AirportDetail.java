@@ -1,6 +1,5 @@
 package com.adidas.travel.domain;
 
-import com.adidas.travel.client.domain.City;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import lombok.Data;
 

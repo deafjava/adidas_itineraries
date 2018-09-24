@@ -1,4 +1,4 @@
-package com.adidas.travel.client.domain;
+package com.adidas.travel.domain;
 
 import lombok.Data;
 
