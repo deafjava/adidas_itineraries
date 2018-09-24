@@ -96,3 +96,9 @@ dependencies {
 	testCompile('org.mockito:mockito-core')
 }
 
+test {
+	useTestNG()
+	afterTest { desc, result ->
+		logger.quiet "Executing test ${desc.name} [${desc.className}] with result: ${result.resultType}"
+	}
+}

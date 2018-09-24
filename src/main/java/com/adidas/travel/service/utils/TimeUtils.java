@@ -15,6 +15,13 @@ public class TimeUtils {
         if (!s.contains("H")) {
             s = s.replace("PT", "PT00H");
         }
+        if (!s.contains("M")) {
+            s = s.replace("H", "H00M");
+        }
+        if (!s.contains("S")) {
+            s = s.replace("M", "M00S");
+        }
+
         s = s.replaceAll("(PT|S)", "");
         s = s.replaceAll("(H|M)", ":");
         String[] sa = s.split(":");
